@@ -1,0 +1,1 @@
+a mini project with react and styled component
