@@ -1,8 +1,11 @@
+import PageLayout from 'components/common/PageLayout'
 import React from 'react'
 
 function Login() {
   return (
-    <div>Login</div>
+    <PageLayout>
+        Login
+    </PageLayout>
   )
 }
 
