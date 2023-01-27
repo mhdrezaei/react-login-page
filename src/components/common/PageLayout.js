@@ -3,8 +3,8 @@ import React from "react";
 import styled from "styled-components";
 
 const Content = styled.main`
-  max-width: 800px;
-  margin: 80 auto 0 auto;
+  max-width: 1000px;
+  margin: 50px auto 0 auto;
   padding: 0 16px;
   box-sizing: border-box;
   font-family: "Open Sans";

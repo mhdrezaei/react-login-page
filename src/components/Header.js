@@ -11,14 +11,14 @@ const HeaderWrapper = styled.header`
     rgba(73, 14, 224, 1) 65%,
     rgba(2, 1, 138, 1) 100%
   );
-  padding: 1rem;
+  padding: 1rem 3rem;
   display: flex;
   align-items: center;
   gap: 1rem;
 
   & a {
     color: white;
-    font-size: 17px;
+    font-size: 20px;
     text-decoration: none;
     position: relative;
     text-align: center;
