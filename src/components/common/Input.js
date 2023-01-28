@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 const InputText = styled.input`
   position: relative;
@@ -10,6 +10,7 @@ const InputText = styled.input`
   border: 2px solid #0540eb;
   border-radius: 5px;
   outline: none;
+  z-index: 3;
 
   &:after {
     content: "";
@@ -25,11 +26,46 @@ const InputText = styled.input`
     border: 2px solid #02018a;
   }
 `;
+
+const InputGroup = styled.div`
+  position: relative;
+
+  & span {
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 1rem;
+    z-index: 2;
+    animation: moveTop 0.4s linear 1;
+    transition: all 0.4;
+    /* animation-delay: 1s; */
+  }
+  @keyframes moveTop {
+    from {
+      top: 40%;
+    }
+    to {
+      top: 0;
+    }
+  }
+`;
 function Input(props) {
+  const [change, setChange] = useState(false);
+
+  const handleInput = (e) => {
+    const value = e.target.value;
+    if (value && value.trim().length > 0) {
+      setChange(true);
+    } else {
+      setChange(false);
+    }
+  };
   return (
-    <div>
-      <InputText {...props} />
-    </div>
+    <InputGroup>
+      <InputText {...props} onChange={handleInput} />
+      {change ? <span>{props.placeholder}</span> : ""}
+    </InputGroup>
   );
 }
 
