@@ -1,3 +1,4 @@
+import Button from "components/common/Button";
 import Input from "components/common/Input";
 import PageLayout from "components/common/PageLayout";
 import React from "react";
@@ -57,12 +58,9 @@ function Login() {
       <Heading>Login</Heading>
       <Content>
         <form>
-          <Input
-            type="text"
-            name="username"
-            placeholder="Username"
-            data-text="Username"
-          />
+          <Input type="text" name="username" placeholder="Username" />
+          <Input type="password" name="password" placeholder="Password" />
+          <Button type="submit" label="Login" />
         </form>
       </Content>
     </PageLayout>
