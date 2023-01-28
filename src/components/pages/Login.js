@@ -1,3 +1,4 @@
+import Input from "components/common/Input";
 import PageLayout from "components/common/PageLayout";
 import React from "react";
 import styled from "styled-components";
@@ -54,7 +55,16 @@ function Login() {
   return (
     <PageLayout>
       <Heading>Login</Heading>
-      <Content></Content>
+      <Content>
+        <form>
+          <Input
+            type="text"
+            name="username"
+            placeholder="Username"
+            data-text="Username"
+          />
+        </form>
+      </Content>
     </PageLayout>
   );
 }
