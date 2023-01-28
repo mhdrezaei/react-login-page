@@ -12,7 +12,8 @@ const Content = styled.div`
   margin-bottom: 5rem;
 `;
 
-const Heading = styled.h1`
+export const Heading = styled.h1`
+  position: relative;
   background: linear-gradient(
     222deg,
     rgba(5, 64, 235, 1) 23%,
@@ -24,6 +25,30 @@ const Heading = styled.h1`
   color: white;
   border-radius: 5px 5px 0 0;
   box-shadow: 2px -2px 12px 5px #ececec;
+  overflow: hidden;
+  :hover:before {
+    animation: glaslight 0.4s linear 1;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 1000px;
+    background-color: #eaeaea63;
+    transform: skewX(-45deg) translate(-350%, -50%);
+    transform: all 0.1s;
+  }
+
+  @keyframes glaslight {
+    from {
+      transform: skewX(-45deg) translate(-350%, -50%);
+    }
+    to {
+      transform: skewX(-45deg) translate(350%, 5%);
+    }
+  }
 `;
 function Login() {
   return (
