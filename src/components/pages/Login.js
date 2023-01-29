@@ -1,10 +1,12 @@
 import Button from "components/common/Button";
 import Input from "components/common/Input";
 import PageLayout from "components/common/PageLayout";
+import SocialLogin from "components/common/SocialLogin";
 import React from "react";
 import styled from "styled-components";
 
 const Content = styled.div`
+  display: flex;
   padding: 1.5rem;
   background-color: #f9f9f9;
   color: #333;
@@ -62,6 +64,7 @@ function Login() {
           <Input type="password" name="password" placeholder="Password" />
           <Button type="submit" label="Login" />
         </form>
+        <SocialLogin />
       </Content>
     </PageLayout>
   );
