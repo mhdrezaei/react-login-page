@@ -2,7 +2,8 @@ import Button from "components/common/Button";
 import Input from "components/common/Input";
 import PageLayout from "components/common/PageLayout";
 import SocialLogin from "components/common/SocialLogin";
-import React from "react";
+import Spinner from "components/common/Spinner";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const Content = styled.div`
@@ -55,14 +56,47 @@ export const Heading = styled.h1`
   }
 `;
 function Login() {
+  const [formFields, setFormFields] = useState({ username: "", password: "" });
+  const [isLoading, setIsLoading] = useState(false);
+  const inputHandler = (e) => {
+    setFormFields((prevState) => {
+      return { ...prevState, [e.target.name]: [e.target.value] };
+    });
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    const timeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 15000);
+  };
   return (
     <PageLayout>
       <Heading>Login</Heading>
       <Content>
-        <form>
-          <Input type="text" name="username" placeholder="Username" />
-          <Input type="password" name="password" placeholder="Password" />
-          <Button type="submit" label="Login" />
+        <form onSubmit={submitHandler}>
+          {isLoading ? (
+            <Spinner />
+          ) : (
+            <>
+              <Input
+                type="text"
+                name="username"
+                placeholder="Username"
+                onChange={inputHandler}
+                value={formFields.username}
+              />
+              <Input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formFields.password}
+                onChange={inputHandler}
+              />
+            </>
+          )}
+          <Button type="submit" label={isLoading ? "Loading..." : "Login"} />
         </form>
         <SocialLogin />
       </Content>

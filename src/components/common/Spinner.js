@@ -11,8 +11,10 @@ to{
 `;
 
 const Loading = styled.img`
+  display: block;
   width: 40px;
   height: 40px;
+  margin: 100px auto;
   animation: ${rotation} 0.3s linear infinite;
 `;
 function Spinner() {
