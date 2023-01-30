@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Toggle from "./common/Toggle";
 
 const HeaderWrapper = styled.header`
-  width: 100%;
   color: white;
   background: linear-gradient(
     222deg,
@@ -72,6 +72,7 @@ function Header() {
       <Link to="/login" data-text="Login">
         <span>Login</span>
       </Link>
+      <Toggle />
     </HeaderWrapper>
   );
 }
