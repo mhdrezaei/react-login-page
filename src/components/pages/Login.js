@@ -59,9 +59,12 @@ function Login() {
   const [formFields, setFormFields] = useState({ username: "", password: "" });
   const [isLoading, setIsLoading] = useState(false);
   const inputHandler = (e) => {
+    console.log(formFields);
+    e.persist();
     setFormFields((prevState) => {
-      return { ...prevState, [e.target.name]: [e.target.value] };
+      return { ...prevState, [e.target.name]: e.target.value };
     });
+    console.log(formFields);
   };
 
   const submitHandler = (e) => {

@@ -63,7 +63,7 @@ function Input(props) {
   };
   return (
     <InputGroup>
-      <InputText {...props} onChange={handleInput} />
+      <InputText {...props} onKeyUp={handleInput} />
       {change ? <span>{props.placeholder}</span> : ""}
     </InputGroup>
   );
