@@ -17,7 +17,7 @@ const Content = styled.div`
   color: #333;
   border-radius: 0 0 5px 5px;
   box-shadow: 1px 1px 8px 5px #999;
-  border-bottom: 5px solid #02018a;
+  border-bottom: 5px solid ${(s) => s.theme.primaryColor};
   margin-bottom: 5rem;
 `;
 

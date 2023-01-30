@@ -7,9 +7,9 @@ const HeaderWrapper = styled.header`
   color: white;
   background: linear-gradient(
     222deg,
-    rgba(5, 64, 235, 1) 23%,
-    rgba(73, 14, 224, 1) 65%,
-    rgba(2, 1, 138, 1) 100%
+    ${(s) => s.theme.secondaryColor} 23%,
+    ${(s) => s.theme.accentColor} 65%,
+    ${(s) => s.theme.primaryColor} 100%
   );
   padding: 1rem 3rem;
   display: flex;

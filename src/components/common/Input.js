@@ -7,7 +7,7 @@ const InputText = styled.input`
   font-size: 18px;
   padding: 0.5rem;
   margin: 2rem 0.5rem;
-  border: 2px solid #0540eb;
+  border: 2px solid ${(s) => s.theme.accentColor};
   border-radius: 5px;
   outline: none;
   z-index: 3;
@@ -23,7 +23,7 @@ const InputText = styled.input`
     transition: transform 0.4s ease-in-out;
   }
   &:focus {
-    border: 2px solid #02018a;
+    border: 2px solid ${(s) => s.theme.primaryColor};
   }
 `;
 
@@ -62,7 +62,6 @@ function Input(props) {
     }
   };
 
-  
   return (
     <InputGroup>
       <InputText {...props} onKeyUp={handleInput} />

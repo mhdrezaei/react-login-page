@@ -30,7 +30,8 @@ const ButtonDiv = styled.div`
       width: 100%;
       height: 0%;
       border-radius: 0 0 50% 50%;
-      background-color: #0540eb;
+      background-color: ${(s) =>
+        s.primary ? s.theme.primaryColor : s.theme.secondaryColor};
       z-index: -1;
       transition: all 0.5s;
     }

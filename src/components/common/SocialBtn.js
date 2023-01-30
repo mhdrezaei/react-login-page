@@ -7,10 +7,10 @@ const SocialButton = styled.a`
   width: 50%;
   font-size: 18px;
   padding: 0.5rem 1rem;
-  border: 1px solid #0540eb;
+  border: 1px solid ${(s) => s.theme.accentColor};
   border-radius: 5px;
   background-color: #fff;
-  color: #0540eb;
+  color: ${(s) => s.theme.accentColor};
   cursor: pointer;
   overflow: hidden;
   z-index: 5;
