@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useContext } from "react";
+import styled, { ThemeContext } from "styled-components";
 import { Link } from "react-router-dom";
 import Toggle from "./common/Toggle";
 
@@ -8,8 +8,8 @@ const HeaderWrapper = styled.header`
   background: linear-gradient(
     222deg,
     ${(s) => s.theme.secondaryColor} 23%,
-    ${(s) => s.theme.accentColor} 65%,
-    ${(s) => s.theme.primaryColor} 100%
+    ${(s) => s.theme.accentColor} 45%,
+    ${(s) => s.theme.primaryColor} 95%
   );
   padding: 1rem 3rem;
   display: flex;
@@ -64,6 +64,7 @@ const HeaderWrapper = styled.header`
   }
 `;
 function Header() {
+  const { id, setTheme } = useContext(ThemeContext);
   return (
     <HeaderWrapper>
       <Link to="/" data-text="Home">
@@ -72,7 +73,7 @@ function Header() {
       <Link to="/login" data-text="Login">
         <span>Login</span>
       </Link>
-      <Toggle />
+      <Toggle isActive={id === "dark"} onToggle={setTheme} />
     </HeaderWrapper>
   );
 }

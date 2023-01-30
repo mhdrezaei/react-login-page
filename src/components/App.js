@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import light from "themes/light";
+import dark from "themes/dark";
 
 const GlobalStyle = createGlobalStyle`
 html{
   overflow-x: hidden;
 }
 body{
-  background-color: white;
+  background-color: ${(s) =>
+    s.theme.id === "dark" ? s.theme.darkerColor : "#f9f9f9"};;
   min-height: 100vh;
   font-family: 'Kaushan Script';
   margin: 0;
@@ -25,14 +28,18 @@ p{
   margin-block-end: 0;
 }
 `;
-const theme = {
-  primaryColor: "#00077c",
-  secondaryColor: "#00a8ff",
-  accentColor: "#030fe0",
-};
+
 function App() {
+  const [theme, setTheme] = useState(light);
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider
+      theme={{
+        ...theme,
+        setTheme: () => {
+          setTheme((prevState) => (prevState.id === "light" ? dark : light));
+        },
+      }}
+    >
       <GlobalStyle />
       <Routes>
         <Route path="/login" element={<Login />} />

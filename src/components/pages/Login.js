@@ -9,11 +9,15 @@ import styled from "styled-components";
 const Content = styled.div`
   display: flex;
   padding: 1.5rem;
-  background-color: #f9f9f9;
+  background-color: ${(s) =>
+    s.theme.id === "dark" ? s.theme.darkColor : "#f9f9f9"};
   color: #333;
   border-radius: 0 0 5px 5px;
-  box-shadow: 1px 1px 8px 5px #999;
-  border-bottom: 5px solid ${(s) => s.theme.primaryColor};
+  box-shadow: 1px 1px 8px 5px
+    ${(s) => (s.theme.id === "dark" ? s.theme.darkestColor : "#999")};
+  border-bottom: 5px solid
+    ${(s) =>
+      s.theme.id === "dark" ? s.theme.secondaryColor : s.theme.primaryColor};
   margin-bottom: 5rem;
 `;
 
@@ -29,7 +33,7 @@ export const Heading = styled.h1`
   margin-bottom: 0;
   color: white;
   border-radius: 5px 5px 0 0;
-  box-shadow: 2px -2px 12px 5px #ececec;
+  box-shadow: 2px -2px 12px 5px ${(s) => (s.theme.id === "dark" ? s.theme.darkerColor : "#ececec")};
   overflow: hidden;
   :hover:before {
     animation: glaslight 0.4s linear 1;
@@ -60,12 +64,10 @@ function Login() {
   const [isLoading, setIsLoading] = useState(false);
   let timeout;
   const inputHandler = (e) => {
-    console.log(formFields);
     e.persist();
     setFormFields((prevState) => {
       return { ...prevState, [e.target.name]: e.target.value };
     });
-    console.log(formFields);
   };
 
   const submitHandler = (e) => {
@@ -79,7 +81,7 @@ function Login() {
     return () => {
       clearTimeout(timeout);
     };
-  });
+  }, [timeout]);
 
   return (
     <PageLayout>

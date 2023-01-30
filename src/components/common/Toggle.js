@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 const ToggleBtn = styled.div`
   position: relative;
@@ -24,10 +24,10 @@ const Notch = styled.div`
   transition: all 0.1s;
   transform: translate(${(s) => (s.isActive ? "26px" : "1px")});
 `;
-function Toggle() {
-  const [isActive, setIsActive] = useState(false);
+function Toggle({ isActive, onToggle }) {
+  //   const [isActive, setIsActive] = useState(false);
   return (
-    <ToggleBtn onClick={() => setIsActive(!isActive)}>
+    <ToggleBtn onClick={onToggle}>
       <Notch isActive={isActive} />
     </ToggleBtn>
   );
