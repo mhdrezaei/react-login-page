@@ -3,7 +3,7 @@ import Input from "components/common/Input";
 import PageLayout from "components/common/PageLayout";
 import SocialLogin from "components/common/SocialLogin";
 import Spinner from "components/common/Spinner";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Content = styled.div`
@@ -58,6 +58,7 @@ export const Heading = styled.h1`
 function Login() {
   const [formFields, setFormFields] = useState({ username: "", password: "" });
   const [isLoading, setIsLoading] = useState(false);
+  let timeout;
   const inputHandler = (e) => {
     console.log(formFields);
     e.persist();
@@ -70,10 +71,16 @@ function Login() {
   const submitHandler = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    const timeout = setTimeout(() => {
+    timeout = setTimeout(() => {
       setIsLoading(false);
-    }, 15000);
+    }, 3000);
   };
+  useEffect(() => {
+    return () => {
+      clearTimeout(timeout);
+    };
+  });
+
   return (
     <PageLayout>
       <Heading>Login</Heading>

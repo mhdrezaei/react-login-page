@@ -61,6 +61,8 @@ function Input(props) {
       setChange(false);
     }
   };
+
+  
   return (
     <InputGroup>
       <InputText {...props} onKeyUp={handleInput} />
